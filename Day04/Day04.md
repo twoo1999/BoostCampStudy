@@ -77,3 +77,5 @@ malloc, new등이 이에 속합니다.
 V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어진 오픈소스입니다.<br>
 
 ### V8 엔진의 메모리 구조
+![메모리구조](https://github.com/twoo1999/BoostCampStudy/assets/125804293/8342796d-5736-415d-88b7-82483298f112)
+
