@@ -89,17 +89,27 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
   <br> 다만 이렇게 구분한 이유를 설명하자면 위에서 설명했듯이 자동으로 메모리를 관리해주는 기능을 위해서입니다.
 
 아래의 과정을 마이너 GC(Garbage Collection)이라 하고 또는 스캐빈저라고 합니다.
+![슬라이드1](https://github.com/twoo1999/BoostCampStudy/assets/125804293/9c756221-22ee-4278-93cd-12d248f6c57e)
 
 1. 우선 먼저 저장되는 데이터는 처음 New Space의 semi-space(to)에 저장됩니다.
-   <br><사진>
+   ![슬라이드2](https://github.com/twoo1999/BoostCampStudy/assets/125804293/e0c305d5-025c-40e4-a9c5-298289c7ca45)
+
 2. semi-space(to)도 메모리이기에 한정된 용량을 넘어선다면 모든 데이터가 semi-space(from)으로 이동합니다.
-   <br><사진>
+   ![슬라이드3](https://github.com/twoo1999/BoostCampStudy/assets/125804293/d36beaca-5777-450b-8105-64c4fc16ad07)
+
 3. semi-space(from)에 있는 데이터 중 메모리를 사용하는 데이터는 다시 semi-space(to)로 이동하고 나머지 데이터(semi-space(from)에 있는 데이터)는 삭제됩니다.
-   <br><사진>
+   ![슬라이드4](https://github.com/twoo1999/BoostCampStudy/assets/125804293/9a489efa-a3f3-460c-ac00-a8a3ff48cc62)
+
 4. 이제 또 다시 새로운 데이터가 추가됐다고 가정합십다,.
-   <br><사진>
+   ![슬라이드5](https://github.com/twoo1999/BoostCampStudy/assets/125804293/4884a158-1d34-4b3d-bebc-2346201dd751)
+
 5. 위의 과정과 똑같이 semi-space(to)가 가득 차게된다면 모든 데이터가 semi-space(from)으로 이동합니다.
-   <br><사진>
+   ![슬라이드6](https://github.com/twoo1999/BoostCampStudy/assets/125804293/8354e18d-3e2e-478e-8b72-60fe7dd88286)
+
 6. 이 과정에서 메모리를 사용하는 데이터는 다시 이동을 하게 되는데 이 때 두가지로 나뉩니다. 첫번째는 기존에 먼저 처리가 된 데이터(A, B, C) 두번째는 처음 처리되는 데이터(F, G) A, B, C 메모리를 사용하고 있는 데이터는 Old 영역으로 들어가게 되고 F, G는 다시 semi-space(to)로 들어가게 됩니다.
    <br> 즉 두번의 처리를 거치고 살아남은 데이터는 Old 영역으로 넘어가게 됩니다.
-   <br><사진>
+   ![슬라이드7](https://github.com/twoo1999/BoostCampStudy/assets/125804293/d19e2bdd-653c-48da-adb0-f8adedd807fa)
+
+7. 최종 상태
+   ![슬라이드8](https://github.com/twoo1999/BoostCampStudy/assets/125804293/c83fb4c5-234b-44ef-bf94-44a04944ff8a)
+
