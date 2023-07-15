@@ -88,8 +88,8 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
   New space 와 Old space는 힙에 저장되는 데이터가 저장되는 곳 입니다.
   <br> 다만 이렇게 구분한 이유를 설명하자면 위에서 설명했듯이 자동으로 메모리를 관리해주는 기능을 위해서입니다.
 
-아래의 과정을 마이너 GC(Garbage Collection)이라 하고 또는 스캐빈저라고 합니다.
-![슬라이드1](https://github.com/twoo1999/BoostCampStudy/assets/125804293/9c756221-22ee-4278-93cd-12d248f6c57e)
+- 마이너 GC(Garbage Collection) 또는 스캐빈저 과정
+  ![슬라이드1](https://github.com/twoo1999/BoostCampStudy/assets/125804293/9c756221-22ee-4278-93cd-12d248f6c57e)
 
 1. 우선 먼저 저장되는 데이터는 처음 New Space의 semi-space(to)에 저장됩니다.
    ![슬라이드2](https://github.com/twoo1999/BoostCampStudy/assets/125804293/e0c305d5-025c-40e4-a9c5-298289c7ca45)
@@ -100,7 +100,7 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
 3. semi-space(from)에 있는 데이터 중 메모리를 사용하는 데이터는 다시 semi-space(to)로 이동하고 나머지 데이터(semi-space(from)에 있는 데이터)는 삭제됩니다.
    ![슬라이드4](https://github.com/twoo1999/BoostCampStudy/assets/125804293/9a489efa-a3f3-460c-ac00-a8a3ff48cc62)
 
-4. 이제 또 다시 새로운 데이터가 추가됐다고 가정합십다,.
+4. 이제 또 다시 새로운 데이터가 추가됐다고 가정합시다.
    ![슬라이드5](https://github.com/twoo1999/BoostCampStudy/assets/125804293/4884a158-1d34-4b3d-bebc-2346201dd751)
 
 5. 위의 과정과 똑같이 semi-space(to)가 가득 차게된다면 모든 데이터가 semi-space(from)으로 이동합니다.
@@ -110,6 +110,26 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
    <br> 즉 두번의 처리를 거치고 살아남은 데이터는 Old 영역으로 넘어가게 됩니다.
    ![슬라이드7](https://github.com/twoo1999/BoostCampStudy/assets/125804293/d19e2bdd-653c-48da-adb0-f8adedd807fa)
 
-7. 최종 상태
+7. 이에 따른 최종 상태입니다.
    ![슬라이드8](https://github.com/twoo1999/BoostCampStudy/assets/125804293/c83fb4c5-234b-44ef-bf94-44a04944ff8a)
+   이때 Old Pointer 영역과 Old Data영역이 있는데 이 구분은 간단합니다.
+   실제 데이터를 참조하는 포인터이냐 실제 데이터냐의 차이입니다.
+   모든 객체는 Old Pointer이고 문자열의 경우에는 Old Data라고 볼 수 있습니다.
 
+- 메이저 GC
+  마이너 GC는 New Space를 관리하는 기능입니다. 이에 따라 New Space는 관리할 수 있지만 Old Space는 관리할 수 없습니다. 당연하겠지만 Old Space 또한 메모리이기에 가득 차는 상황이 발생할 수 있습니다. 이 상황을 방지하는 것이 메이저 GC 입니다. 기본적인 이념은 마이너 GC와 비슷합니다.
+
+1. 모든 데이터를 DFS하며 탐색합니다.
+2. 탐색한 데이터는 메모리를 사용하고 있는 데이터의 경우 마킹을 합니다. (당연하겠지만 메모리를 사용하지 않는 데이터의 경우 마킹이 되지 않습니다.)
+3. 마킹되지 않는 데이터는 제거함으로써 Old Space를 유지관리합니다.
+
+지금까지의 과정이 Node.js에서 메모리 누수를 방지하기 위해 관리하는 방법입니다. <br> 지금까지 C를 많이 해서 이에 익숙했는데 V8을 알고나니 시스템이 얼마나 고마운지 모르겠네요...
+
+- 나머지 영역 : <br>
+  종류에 맞게 저장해서 편하게 하기 위한 영역이라고 보면 되겠습니다.
+  ]
+
+[참고]https://ui.toast.com/weekly-pick/ko_20200228<br>
+[참고]https://m.blog.naver.com/dlaxodud2388/222307876737
+
+# 리눅스 운영체제의 가상메모리
