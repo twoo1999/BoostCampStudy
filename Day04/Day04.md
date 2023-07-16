@@ -164,7 +164,8 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
 
 바로 CPU는 가상주소만을 읽을 수 있기 때문입니다. 그래서 이 가상주소를 물리주소로 바꾸는 과정이 하나 더 필요한 것 입니다.
 
-사진
+![MMU](https://github.com/twoo1999/BoostCampStudy/assets/125804293/f694bd0b-cf45-4821-b23f-ed306dae9fe1)
+
 
 ### swapping 기법
 
@@ -178,7 +179,8 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
 <br>
 이 과정에서 하드디스크에서 데이터를 가져오고 다시 하드디스크에 데이터를 넣는 모습이 보여 Swapping기법이라고 합니다.
 
-사진
+![swap](https://github.com/twoo1999/BoostCampStudy/assets/125804293/f9452a54-c834-41fa-a3cc-deb7a93682fa)
+
 
 ### 페이징 기법
 
