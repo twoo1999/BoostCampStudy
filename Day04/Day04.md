@@ -166,7 +166,6 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
 
 ![MMU](https://github.com/twoo1999/BoostCampStudy/assets/125804293/f694bd0b-cf45-4821-b23f-ed306dae9fe1)
 
-
 ### swapping 기법
 
 우리가 당장 필요한 데이터는 메인메모리에 저장되어 있어야 가져와서 사용할 수 있습니다.<br>
@@ -180,7 +179,6 @@ V8 엔진이란 Google에서 만든 js 컴파일러로 C++기반으로 만들어
 이 과정에서 하드디스크에서 데이터를 가져오고 다시 하드디스크에 데이터를 넣는 모습이 보여 Swapping기법이라고 합니다.
 
 ![swap](https://github.com/twoo1999/BoostCampStudy/assets/125804293/f9452a54-c834-41fa-a3cc-deb7a93682fa)
-
 
 ### 페이징 기법
 
@@ -209,3 +207,7 @@ TLB에 저장된 정보라면 메모리에 바로 접근해서 데이터를 가�
 근데 TLB에 저장되지 않은 정보라면 페이지 테이블을 참고해서 데이터를 가져옵니다.
 
 차이는 메모리에 한번 접근하냐 두번 접근하냐의 차이가 되겠습니다.
+
+[참고]<br>
+https://jeongzero.oopy.io/359eaa11-b6e6-466c-a066-9ae582c886d4<br>
+https://parkadd.tistory.com/121
