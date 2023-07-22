@@ -83,20 +83,20 @@ function pushData(num){
 
 함수와 렉시컬 환경의 조합입니다.
 
-![Alt text](%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C1.JPG)
+
 
 호이스팅의 결과로 makeFunc은 제일 먼저 선언되고 다음 stringAdd가 선언되어 초기화됩니다.
 
-![Alt text](%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C2.JPG)
+
 
 makeFunc의 렉시컬 환경이 만들어지고 그의 매개변수가 저장됩니다.
 
-![Alt text](%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C3.JPG)
+
 makeFunc안의 익명함수의 렉시컬 환경이 만들어지고 매개변수가 저장됩니다.
 
 익명합수 안에서 x를 찾아야하는 상황에서 익명함수 안에 x 가 없으니 찾기위해 외부함수를 참조하여 y값을 찾습니다.
 
-![Alt text](%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C4.JPG)
+
 
 x와 y를 찾았으니 정상적인 연산이 이루어집니다.
 
