@@ -199,6 +199,8 @@ SHA는 해시알고리즘 중 하나이며 위의 특징으로 SHA는 보안관�
 
 ![캡처](picture/git%20내부%20구조.png)
 
+[참고] https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EB%82%B4%EB%B6%80-Git-%EA%B0%9C%EC%B2%B4
+
 위에서 회색박스가 blob파일입니다. Working Directory의 내용을 저장합니다.
 
 그 blob들을 가르키고 있는 파란색 박스가 트리입니다.
